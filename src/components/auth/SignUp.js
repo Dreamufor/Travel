@@ -29,7 +29,7 @@ export class SignUp extends Component {
       <div>
         <div className="container">
             <form onSubmit={this.handleSubmit} className="white">
-                <h5 className="grey-text text-darken-3">
+                <h5 className="grey-text text-darken-3 center">
                     Sign Up
                 </h5>
                 <div className="input-field">
@@ -49,7 +49,7 @@ export class SignUp extends Component {
                     <label htmlFor="firstName">First Name</label>
                     <input type="text" id="firstName" onChange={this.handleChange}/>
                 </div>
-                <div className="input-field">
+                <div className="input-field center">
                     <button className="btn blue lighten-1 z-depth-0">Sign up</button>
                 </div>
             </form>

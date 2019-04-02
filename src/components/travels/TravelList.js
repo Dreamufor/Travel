@@ -1,10 +1,15 @@
 import React from 'react';
 import TravelSummary from './TravelSummary';
 
-const TravelList = () => {
+const TravelList = ({travels}) => {
+
     return (
         <div className="travel-list section">
-           <TravelSummary />   
+           { travels && travels.map( travel => {
+               return (
+                   <TravelSummary travel={travel} key={travel.id} />
+               )
+           })}
         </div>
 
         

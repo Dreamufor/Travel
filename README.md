@@ -72,8 +72,64 @@ For dashboard, use grid sys to divide into two part, left for travel list, and r
  
  #### 6 Sign in/up component
  
- ES7 snippets
+ Use ES7 snippets to speed coding
  rfe
  rce 
 
 Both of signin and signup are class based component and are quite similar as well as create from
+
+#### 7 Redux
+
+`npm install redux react-redux`
+
+we want to kick everything start in index.js 
+set store and there is a reducer in the store
+
+`import { createStore } from 'redux';`
+and then import Provider for the store, this is import from react-redux.
+`import { Provider } from 'react-redux'`;
+store = createStore(rootReducer);
+`<Provider store={store}><App /></Provider>`
+
+inside the store, we have to init reducer.
+
+create a folder called store then we can put actions and reducers.
+
+there r two reducers in our website, travelReducer and authReducer, an we also need a root reducer to combine them.
+
+#### 8 Use redux to get data
+
+The travel reducer is the one we store all the travel data, and the root reducer has all the data including tracvels and  auth data. 
+But how we get this data for the dashboard file.
+
+We have set Provider and store the data in the index.js file and that means it is a father component that we can get all props from it. To get data for dashboard, the only thing we need do is to import { connect } from  'react-redux' and set as hoc.
+and return the data we need.
+
+```
+const mapStateToProps = (state) => {
+    return {
+        travels: state.travel.travels
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard);
+```
+#### 9 Redux-thunk
+
+Redux-thunk is to deal with async data
+
+#### 10 Firebase
+`npm install firebase`
+
+Travels Collections {
+    title, content, authorFirstName, authorLastName, authorId, timestamp
+}
+User Collection {
+    info about app users
+}
+
+Notisfications Collections
+{
+    info about notisfications
+}
+
