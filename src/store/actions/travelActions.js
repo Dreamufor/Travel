@@ -3,8 +3,20 @@ export const createTravel = (travel) => {
     //     type : 'ADD_TRAVEL',
     //     travel: travel 
     // }
-    return (dispach, getState) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
         //make async call to database
-        dispach({type: 'CREATE_TRAVEL' , travel });
+        const firestore = getFirestore();
+        firestore.collection('travels').add({
+            ...travel,
+            authorFirstName: ' Mumu ',
+            authorLastName: ' Zhang ',
+            authorId: 12345,
+            createAt: new Date()
+        }).then(() => {
+            dispatch({type: 'CREATE_TRAVEL' , travel });
+        }).catch((err) => {
+            dispatch({type : 'CREATE_TRAVEL_ERROR', err});
+        })
+       
     }
 };

@@ -10,9 +10,16 @@ const initState = {
 const travelReducer = (state = initState, action) => {
     switch (action.type){
         case 'CREATE_TRAVEL':
-        console.log('created travel', action.travel);
+            console.log('created travel', action.travel);
+            return state;
+
+        case 'CREATE_TRAVEL_ERROR':
+            console.log('create project error', action.err);
+            return state;
+        
+        default:
+            return state
     }
-    return state 
 }
 
 export default travelReducer;
