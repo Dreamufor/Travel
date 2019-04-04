@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {createTravel} from '../../store/actions/travelActions';
+import { createTravel } from '../../store/actions/travelActions';
+import {  Redirect } from 'react-router-dom';
+
 
 export class CreateTravel extends Component {
   state = {
@@ -24,9 +26,11 @@ export class CreateTravel extends Component {
     e.preventDefault();
     //console.log(this.state);
     this.props.createTravel(this.state);
-    
+
   }
   render() {
+    const { auth } = this.props;
+    if(! auth.uid) return <Redirect to='/signin' />
     return (
       <div>
         <div className="container">
@@ -53,6 +57,11 @@ export class CreateTravel extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth 
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -60,5 +69,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateTravel);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateTravel);
 

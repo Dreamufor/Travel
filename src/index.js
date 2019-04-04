@@ -15,10 +15,15 @@ import fbConfig from './config/fbConfig';
 const store = createStore(rootReducer, 
     compose(
         applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-        reactReduxFirebase(fbConfig),
-        reduxFirestore(fbConfig)       
+        reduxFirestore(fbConfig),
+        reactReduxFirebase(fbConfig,{ attachAuthIsReady : true })    
         )
     ); 
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
-registerServiceWorker();
+//avoid loading all the component before auth, otherwise all the links will appear in the nav ignore auth state
+store.firebaseAuthIsReady.then(() => {
+    ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+    registerServiceWorker();
+});
+
+
