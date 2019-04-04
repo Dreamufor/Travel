@@ -26,6 +26,8 @@ export class CreateTravel extends Component {
     e.preventDefault();
     //console.log(this.state);
     this.props.createTravel(this.state);
+    //use history to redirect to home page
+    this.props.history.push('/');
 
   }
   render() {

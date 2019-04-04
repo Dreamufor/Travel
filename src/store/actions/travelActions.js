@@ -6,11 +6,13 @@ export const createTravel = (travel) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         //make async call to database
         const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const authorId = getState().firebase.auth.uid;
         firestore.collection('travels').add({
             ...travel,
-            authorFirstName: ' Mumu ',
-            authorLastName: ' Zhang ',
-            authorId: 12345,
+            authorFirstName: profile.firstName,
+            authorLastName: profile.lastName,
+            authorId: authorId,
             createAt: new Date()
         }).then(() => {
             dispatch({type: 'CREATE_TRAVEL' , travel });
