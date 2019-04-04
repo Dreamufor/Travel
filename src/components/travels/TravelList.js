@@ -1,5 +1,6 @@
 import React from 'react';
 import TravelSummary from './TravelSummary';
+import { Link } from 'react-router-dom';
 
 const TravelList = ({travels}) => {
 
@@ -7,7 +8,9 @@ const TravelList = ({travels}) => {
         <div className="travel-list section">
            { travels && travels.map( travel => {
                return (
+                   <Link to={'/travel/' + travel.id}>
                    <TravelSummary travel={travel} key={travel.id} />
+                    </Link>
                )
            })}
         </div>

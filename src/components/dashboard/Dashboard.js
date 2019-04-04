@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Notification from './Notifications';
 import TravelList from '../travels/TravelList';
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 class Dashboard extends Component {
     render(){
@@ -24,9 +26,16 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+   // console.log(state);
     return {
-        travels: state.travel.travels
+        //travels: state.travel.travels
+        travels : state.firestore.ordered.travels
     }
 }
-
-export default connect(mapStateToProps)(Dashboard);
+//use compose to combine two high order component
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'travels'}
+    ])
+)(Dashboard);

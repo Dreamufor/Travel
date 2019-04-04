@@ -23,7 +23,8 @@ export class CreateTravel extends Component {
     //console.log(e);
     e.preventDefault();
     //console.log(this.state);
-    this.props.createTravel(this.state)
+    this.props.createTravel(this.state);
+    
   }
   render() {
     return (
