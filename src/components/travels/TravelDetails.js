@@ -4,6 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose }  from 'redux';
 import {  Redirect } from 'react-router-dom';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 
 const TravelDetails = (props) => {
@@ -14,25 +15,26 @@ const TravelDetails = (props) => {
     if(! auth.uid) return <Redirect to='/signin' />
     if(travel){
         return(
-            <div className="container section travel-details">
+            <div className="container">
+            <div className="section travel-details">
                     <div className="card z-depth-0">
                                 <div className="card-content">
+                                    <span><Link to='/' className="right cyan-text text-darken-3">Back to Homepage</Link></span>
                                     <span className="card-title">{travel.title} </span>
-                                    <p>{travel.content} </p>
-                                
+                                    <p>{travel.content} </p>                             
                                 </div>
                                 <div className="card-action gret lighten-4 grey-text">
                                     <p>Posted by {travel.authorFirstName} {travel.authorLastName}</p>
-                                    <p className="grey-text">{moment(travel.createAt.toDate()).calendar()}</p>
-                                </div>
+                                    <p className="grey-text">{moment(travel.createAt.toDate()).calendar()}</p>                                </div>
                             </div>
+                 </div>
             </div>
         )   
     }else{
         return (
-        <dic className="container center">
+        <div className="container center">
             <p>Loading travels...</p>
-        </dic>
+        </div>
             )
     }
     }

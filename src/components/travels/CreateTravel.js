@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { createTravel } from '../../store/actions/travelActions';
 import {  Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export class CreateTravel extends Component {
@@ -36,7 +37,10 @@ export class CreateTravel extends Component {
     return (
       <div>
         <div className="container">
-            <form onSubmit={this.handleSubmit} className="white">
+            <form onSubmit={this.handleSubmit} className="white">  
+            <span>
+              <a className="btn-floating btn-medium cyan-text text-darken-3 pulse right"><i className="material-icons">edit</i></a>
+              <Link to='/' className="left cyan-text text-darken-3">Back to Homepage</Link></span>        
                 <h5 className="grey-text text-darken-3 center">
                     Create a new Travel
                 </h5>
@@ -50,7 +54,7 @@ export class CreateTravel extends Component {
                     <textarea type="text" id="content" className="materialize-textarea" onChange={this.handleChange}/>
                 </div>
                 <div className="input-field center">
-                    <button className="btn blue lighten-1 z-depth-0">Create</button>
+                    <button className="btn cyan z-depth-0">Create</button>
                 </div>
             </form>
             

@@ -17,6 +17,7 @@ const createNotification = ( notification => {
             .then(doc => console.log('notification added', doc))
 })
 
+
 exports.travelCreated = functions.firestore
     .document('travels/{travelId}')
     .onCreate(doc => {
@@ -26,7 +27,6 @@ exports.travelCreated = functions.firestore
             user: `${travel.authorFirstName} ${travel.authorLastName}`,
             time: admin.firestore.FieldValue.serverTimestamp()
         }
-
         return createNotification(notification);
     })
 

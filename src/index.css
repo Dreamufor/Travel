@@ -6,10 +6,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: url(/img/travel-bg.png) no-repeat;
+  background: url(/img/travel-bg.png) no-repeat fixed;
   background-size: 100%;
-  background-color: hsl(188, 91%, 87%);
+  background-color: rgb(200, 224, 242);
   min-height:100%;
+
 }
 
 form{

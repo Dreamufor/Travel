@@ -36,6 +36,8 @@ export class SignUp extends Component {
     return (
       <div>
         <div className="container">
+        <div className="row">
+            <div className="col s12 m8 offset-m2">
             <form onSubmit={this.handleSubmit} className="white">
                 <h5 className="grey-text text-darken-3 center">
                     Sign Up
@@ -58,12 +60,14 @@ export class SignUp extends Component {
                     <input type="text" id="firstName" onChange={this.handleChange}/>
                 </div>
                 <div className="input-field center">
-                    <button className="btn blue lighten-1 z-depth-0">Sign up</button>
+                    <button className="btn cyan z-depth-0">Sign up</button>
                     <div className="red-text center">
                       {authError ?  <p>{authError}</p> : null}
                     </div>
                 </div>
             </form>
+            </div>
+            </div>
             
         </div>
       </div>
