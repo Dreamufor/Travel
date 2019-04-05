@@ -40,7 +40,7 @@ export class CreateTravel extends Component {
             <form onSubmit={this.handleSubmit} className="white">  
             <span>
               <a className="btn-floating btn-medium cyan-text text-darken-3 pulse right"><i className="material-icons">edit</i></a>
-              <Link to='/' className="left cyan-text text-darken-3">Back to Homepage</Link></span>        
+    </span>        
                 <h5 className="grey-text text-darken-3 center">
                     Create a new Travel
                 </h5>
@@ -48,7 +48,6 @@ export class CreateTravel extends Component {
                     <label htmlFor="title">Title</label>
                     <input type="text" id="title" onChange={this.handleChange}/>
                 </div>
-
                 <div className="input-field">
                     <label htmlFor="content">Content</label>
                     <textarea type="text" id="content" className="materialize-textarea" onChange={this.handleChange}/>
@@ -56,6 +55,10 @@ export class CreateTravel extends Component {
                 <div className="input-field center">
                     <button className="btn cyan z-depth-0">Create</button>
                 </div>
+                <div className="center">
+                  <Link to='/' className="cyan-text text-darken-3">Back to Homepage</Link>
+                </div>
+              
             </form>
             
         </div>
