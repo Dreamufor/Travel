@@ -1,3 +1,7 @@
+Deomo: https://traverse-e2d02.firebaseapp.com/signin
+
+The website is completed by React, Redux, Materializa UI, firebase and deployed by firebase. 
+
 
 ## My note of Build this website
 

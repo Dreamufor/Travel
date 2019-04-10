@@ -40,6 +40,6 @@ export default compose(
     connect(mapStateToProps),
     firestoreConnect([
         { collection: 'travels', orderBy: ['createAt', 'desc']},
-        { collection: 'notifications', limit: 3, orderBy: ['time', 'desc']}
+        { collection: 'notifications', limit: 6 , orderBy: ['time', 'desc']}
     ])
 )(Dashboard);

@@ -17,18 +17,19 @@ const Navbar = (props) => {
   const links = auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks/>;
   return (
     <div>
-    <nav className="cyan darken-2">
-      <div className="container nav-wrapper">
+    <nav className="nav-wrapper cyan darken-2">
+      <div className="container">
         <Link to='/' className="brand-logo"><i className="material-icons">bubble_chart</i>Traverse</Link>
-        <a href=" " data-target="mobile-demo" onClick={openSideBar} className="sidenav-trigger"><i className="material-icons">menu</i></a>
+        <a onClick={openSideBar} href="" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
         <ul className="right hide-on-med-and-down">
            { links }
-           </ul>
+          </ul>
+          <ul id="mobile-demo">
+        <Sidebar />
+        </ul>
       </div>
     </nav>
-    <ul id="mobile-demo">
-    <Sidebar />
-    </ul>
+  
     </div>   
   )
 }
